@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+    <script>
+        do{
+            var a = parseFloat(prompt('nhap a = '));
+        }while(a==0)
+        var b = parseFloat(prompt('nhap b = '));
+        var c = parseFloat(prompt('nhap c = '));
+        document.write('Cho phương trình bậc 2 như sau a*x<sup>2</sup> + b*x + c = 0');
+        document.write(`<br>Với a = ${a}, b = ${b}, c = ${c}`)
+        document.write('<br>Kết quả của phương trình bậc 2 là: ');
+        var denta = b*b - 4*a*c;
+        function dentaBangKhong(a, b, c){
+            x = -b/(2*a);
+            return x;            
+        }
+        function nghiemMot(a, b, c, denta){
+            x = (-b + Math.sqrt(denta))/(2*a);
+            return x;
+        }
+
+        function nghiemHai(a, b, c, denta){
+            x = (-b - Math.sqrt(denta))/(2*a);
+            return x;
+        }
+        if (denta < 0){
+            document.write('<br>Phương trình vô nghiệm');
+        }else if(denta == 0){
+            document.write('<br>Phương trình có một nghiệm duy nhất: x = ' + dentaBangKhong(a, b, c));
+        }else{
+            document.write('<br>Phương trình có 2 nghiệm phân biệt là: ');
+            document.write('<br>x1 = '+ nghiemMot(a, b, c, denta));
+            document.write('<br>x2 = '+ nghiemHai(a, b, c, denta));
+        }
+    </script>
+</body>
+</html>
